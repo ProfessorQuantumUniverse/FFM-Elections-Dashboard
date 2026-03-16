@@ -7,6 +7,7 @@ class DataLoader {
     constructor() {
         this.cache = new Map();
         this.loadingPromises = new Map();
+        this.usedSampleData = false;
     }
 
     /**

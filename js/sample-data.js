@@ -179,7 +179,77 @@ const SAMPLE_DATA = {
         { "gebiet-nr": "030", "gebiet-name": "Westend Nord", "A": 5234, "B": 2876, "B1": 876, "C": 52, "D": 215700, "max-schnellmeldungen": 1, "anz-schnellmeldungen": 1 },
         { "gebiet-nr": "031", "gebiet-name": "Westend Süd", "A": 4987, "B": 2654, "B1": 798, "C": 48, "D": 199050, "max-schnellmeldungen": 1, "anz-schnellmeldungen": 1 },
         { "gebiet-nr": "040", "gebiet-name": "Nordend West", "A": 4567, "B": 2432, "B1": 734, "C": 45, "D": 182400, "max-schnellmeldungen": 1, "anz-schnellmeldungen": 1 }
-    ]
+    ],
+
+    // Ortsbeiratswahl - Sample data per district (one aggregated row per district)
+    obDistricts: {
+        'Innenstadt-I': [
+            { "gebiet-nr": "101", "gebiet-name": "Altstadt Nord", "A": 3200, "B": 1760, "B1": 620, "C": 32, "D": 132000, "max-schnellmeldungen": 4, "anz-schnellmeldungen": 4,
+              "D1": 32400, "D2": 11200, "D3": 19800, "D4": 26600, "D5": 11000, "D6": 8200, "D7": 3200, "D8": 5800, "D9": 4200, "D10": 3400, "D11": 2600, "D12": 3600 },
+            { "gebiet-nr": "102", "gebiet-name": "Altstadt Süd", "A": 2900, "B": 1598, "B1": 563, "C": 29, "D": 119850, "max-schnellmeldungen": 4, "anz-schnellmeldungen": 4,
+              "D1": 28000, "D2": 10200, "D3": 17800, "D4": 24400, "D5": 10200, "D6": 7600, "D7": 3000, "D8": 5400, "D9": 3800, "D10": 3100, "D11": 2400, "D12": 3950 }
+        ],
+        'Innenstadt-II': [
+            { "gebiet-nr": "201", "gebiet-name": "Bahnhofsviertel", "A": 3500, "B": 1925, "B1": 680, "C": 35, "D": 144375, "max-schnellmeldungen": 5, "anz-schnellmeldungen": 5,
+              "D1": 36000, "D2": 13500, "D3": 22000, "D4": 29000, "D5": 13000, "D6": 9500, "D7": 6000, "D8": 4500, "D9": 3750, "D10": 3625, "D11": 3500 }
+        ],
+        'Innenstadt-III': [
+            { "gebiet-nr": "301", "gebiet-name": "Gutleut", "A": 3100, "B": 1705, "B1": 600, "C": 31, "D": 127875, "max-schnellmeldungen": 4, "anz-schnellmeldungen": 4,
+              "D1": 30000, "D2": 11000, "D3": 18500, "D4": 26000, "D5": 10500, "D6": 8000, "D7": 4500, "D8": 3500, "D9": 3000, "D10": 2900, "D11": 2875, "D12": 2500, "D13": 2100 }
+        ],
+        'Bornheim-Ostend': [
+            { "gebiet-nr": "401", "gebiet-name": "Bornheim West", "A": 6800, "B": 3740, "B1": 1320, "C": 68, "D": 280500, "max-schnellmeldungen": 8, "anz-schnellmeldungen": 8,
+              "D1": 62000, "D2": 28000, "D3": 50000, "D4": 68000, "D5": 22000, "D6": 16000, "D7": 9500, "D8": 7500, "D9": 5500, "D10": 4200, "D11": 2800, "D12": 2400, "D13": 2100 }
+        ],
+        'Sued': [
+            { "gebiet-nr": "501", "gebiet-name": "Sachsenhausen Nord", "A": 7200, "B": 3960, "B1": 1400, "C": 72, "D": 297000, "max-schnellmeldungen": 9, "anz-schnellmeldungen": 9,
+              "D1": 68000, "D2": 32000, "D3": 55000, "D4": 72000, "D5": 24000, "D6": 17000, "D7": 10000, "D8": 6500, "D9": 4500, "D10": 2500, "D11": 2200, "D12": 1800, "D13": 1000 }
+        ],
+        'West': [
+            { "gebiet-nr": "601", "gebiet-name": "Bockenheim West", "A": 5400, "B": 2970, "B1": 1050, "C": 54, "D": 222750, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7,
+              "D1": 50000, "D2": 22000, "D3": 38000, "D4": 46000, "D5": 18000, "D6": 13000, "D7": 9000, "D8": 5000, "D9": 3500, "D10": 3000, "D11": 2500, "D12": 4500, "D13": 3750, "D14": 2500, "D15": 2000 }
+        ],
+        'Mitte-West': [
+            { "gebiet-nr": "701", "gebiet-name": "Westend Nord", "A": 4800, "B": 2640, "B1": 930, "C": 48, "D": 198000, "max-schnellmeldungen": 6, "anz-schnellmeldungen": 6,
+              "D1": 46000, "D2": 18000, "D3": 32000, "D4": 48000, "D5": 16000, "D6": 11000, "D7": 8000, "D8": 5500, "D9": 3000, "D10": 3500, "D11": 3000, "D12": 4000 }
+        ],
+        'Nord-West': [
+            { "gebiet-nr": "801", "gebiet-name": "Nordend West", "A": 4200, "B": 2310, "B1": 810, "C": 42, "D": 173250, "max-schnellmeldungen": 5, "anz-schnellmeldungen": 5,
+              "D1": 48000, "D3": 30000, "D4": 42000, "D5": 16000, "D6": 10000, "D7": 7000, "D8": 6000, "D9": 6250, "max-schnellmeldungen": 5, "anz-schnellmeldungen": 5 }
+        ],
+        'Mitte-Nord': [
+            { "gebiet-nr": "901", "gebiet-name": "Nordend Ost", "A": 4600, "B": 2530, "B1": 890, "C": 46, "D": 189750, "max-schnellmeldungen": 6, "anz-schnellmeldungen": 6,
+              "D1": 46000, "D2": 19000, "D3": 33000, "D4": 46000, "D5": 17000, "D6": 11000, "D7": 8750, "D8": 5000, "D9": 4000 }
+        ],
+        'Nord-Ost': [
+            { "gebiet-nr": "1001", "gebiet-name": "Dornbusch", "A": 5800, "B": 3190, "B1": 1120, "C": 58, "D": 239250, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7,
+              "D1": 58000, "D2": 24000, "D3": 40000, "D4": 52000, "D5": 20000, "D6": 14000, "D7": 8000, "D8": 7000, "D9": 5000, "D10": 3500, "D11": 4750, "D12": 3000 }
+        ],
+        'Ost': [
+            { "gebiet-nr": "1101", "gebiet-name": "Bornheim Ost", "A": 5400, "B": 2970, "B1": 1050, "C": 54, "D": 222750, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7,
+              "D1": 52000, "D2": 22000, "D3": 38000, "D4": 50000, "D5": 18000, "D6": 13000, "D7": 10000, "D8": 5750, "D9": 6000, "D10": 5000, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7 }
+        ],
+        'Kalbach-Riedberg': [
+            { "gebiet-nr": "1201", "gebiet-name": "Kalbach", "A": 2800, "B": 1540, "B1": 540, "C": 28, "D": 115500, "max-schnellmeldungen": 3, "anz-schnellmeldungen": 3,
+              "D1": 38000, "D3": 20000, "D4": 22000, "D5": 10000, "D6": 5500, "D7": 6000, "D8": 4000, "D9": 2500, "D10": 3500, "D11": 3500 }
+        ],
+        'Nieder-Erlenbach': [
+            { "gebiet-nr": "1301", "gebiet-name": "Nieder-Erlenbach", "A": 1100, "B": 660, "B1": 180, "C": 11, "D": 49500, "max-schnellmeldungen": 1, "anz-schnellmeldungen": 1,
+              "D1": 18000, "D3": 10000, "D4": 8500, "D5": 5000, "D6": 4000, "D7": 4000 }
+        ],
+        'Harheim': [
+            { "gebiet-nr": "1401", "gebiet-name": "Harheim", "A": 900, "B": 540, "B1": 140, "C": 9, "D": 40500, "max-schnellmeldungen": 1, "anz-schnellmeldungen": 1,
+              "D1": 15000, "D3": 8000, "D4": 7000, "D5": 4000, "D6": 3500, "D7": 3000 }
+        ],
+        'Nieder-Eschbach': [
+            { "gebiet-nr": "1501", "gebiet-name": "Nieder-Eschbach", "A": 1600, "B": 960, "B1": 260, "C": 16, "D": 72000, "max-schnellmeldungen": 2, "anz-schnellmeldungen": 2,
+              "D1": 24000, "D3": 14000, "D4": 12000, "D5": 7000, "D6": 6000, "D7": 4500, "D8": 4500 }
+        ],
+        'Bergen-Enkheim': [
+            { "gebiet-nr": "1601", "gebiet-name": "Bergen", "A": 2400, "B": 1320, "B1": 420, "C": 24, "D": 99000, "max-schnellmeldungen": 2, "anz-schnellmeldungen": 2,
+              "D1": 32000, "D3": 18000, "D4": 16000, "D5": 9000, "D6": 8000, "D7": 5500, "D8": 5500, "D9": 5000 }
+        ]
+    }
 };
 
 // Make sample data available globally
@@ -187,6 +257,12 @@ window.SAMPLE_DATA = SAMPLE_DATA;
 
 // Modify the DataLoader to use sample data as fallback
 if (typeof DataLoader !== 'undefined') {
+    // Helper to mark that sample data was used
+    function _markSampleUsed(loader, label) {
+        loader.usedSampleData = true;
+        console.info(`[Demo-Daten] Verwende Demo-Daten für: ${label}`);
+    }
+
     const originalLoadSVGemeinde = DataLoader.prototype.loadSVGemeinde;
     DataLoader.prototype.loadSVGemeinde = async function() {
         try {
@@ -194,7 +270,7 @@ if (typeof DataLoader !== 'undefined') {
             if (data && data.length > 0) return data;
             throw new Error('Empty data');
         } catch (e) {
-            console.log('Using sample data for SV Gemeinde');
+            _markSampleUsed(this, 'SV Gemeinde');
             return SAMPLE_DATA.svGemeinde;
         }
     };
@@ -206,7 +282,7 @@ if (typeof DataLoader !== 'undefined') {
             if (data && data.length > 0) return data;
             throw new Error('Empty data');
         } catch (e) {
-            console.log('Using sample data for SV Ortsbezirke');
+            _markSampleUsed(this, 'SV Ortsbezirke');
             return SAMPLE_DATA.svOrtsbezirke;
         }
     };
@@ -218,7 +294,7 @@ if (typeof DataLoader !== 'undefined') {
             if (data && data.length > 0) return data;
             throw new Error('Empty data');
         } catch (e) {
-            console.log('Using sample data for SV Wahlbezirke');
+            _markSampleUsed(this, 'SV Wahlbezirke');
             return SAMPLE_DATA.svWahlbezirke;
         }
     };
@@ -230,7 +306,7 @@ if (typeof DataLoader !== 'undefined') {
             if (data && data.length > 0) return data;
             throw new Error('Empty data');
         } catch (e) {
-            console.log('Using sample data for SV Trend');
+            _markSampleUsed(this, 'SV Trend');
             return SAMPLE_DATA.svTrend;
         }
     };
@@ -242,8 +318,25 @@ if (typeof DataLoader !== 'undefined') {
             if (data && data.length > 0) return data;
             throw new Error('Empty data');
         } catch (e) {
-            console.log('Using sample data for AB Gemeinde');
+            _markSampleUsed(this, 'AB Gemeinde');
             return SAMPLE_DATA.abGemeinde;
+        }
+    };
+
+    const originalLoadOBDistrict = DataLoader.prototype.loadOBDistrict;
+    DataLoader.prototype.loadOBDistrict = async function(districtSlug) {
+        try {
+            const data = await originalLoadOBDistrict.call(this, districtSlug);
+            if (data && data.length > 0) return data;
+            throw new Error('Empty data');
+        } catch (e) {
+            const fallback = SAMPLE_DATA.obDistricts[districtSlug];
+            if (fallback) {
+                _markSampleUsed(this, `OB ${districtSlug}`);
+                return fallback;
+            }
+            console.warn(`Kein Demo-Datensatz für OB-Bezirk: ${districtSlug}`);
+            return [];
         }
     };
 }
