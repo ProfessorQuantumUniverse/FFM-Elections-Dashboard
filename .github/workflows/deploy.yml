@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Re-deploy every 10 minutes to pick up fresh election results
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -25,15 +28,45 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
+      - name: Download election CSV data
+        run: |
+          BASE="https://votemanager-ffm.ekom21cdn.de/2026-03-15/06412000/daten/opendata"
+          mkdir -p data
+
+          # Fetch the index of available CSV files and download each one
+          INDEX=$(curl -sf "$BASE/open_data.json") || { echo "ERROR: Failed to fetch open_data.json"; exit 1; }
+          FILES=$(echo "$INDEX" \
+            | python3 -c "import json,sys; [print(c['url']) for c in json.load(sys.stdin).get('csvs',[])]")
+
+          if [ -z "$FILES" ]; then
+            echo "ERROR: No CSV files listed in open_data.json"
+            exit 1
+          fi
+
+          FAILED=0
+          for f in $FILES; do
+            echo "Downloading $f ..."
+            curl -sf "$BASE/$f" -o "data/$f" || { echo "WARNING: failed to download $f"; FAILED=$((FAILED+1)); }
+          done
+
+          # Also download the polling-station and street-directory files
+          for f in opendata-wahllokale.csv opendata-strassen.csv; do
+            echo "Downloading $f ..."
+            curl -sf "$BASE/$f" -o "data/$f" || echo "WARNING: failed to download $f"
+          done
+
+          echo "Downloaded $(ls data | wc -l) file(s). CSV failures: $FAILED"
+          ls data/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
