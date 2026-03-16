@@ -25,5 +25,8 @@ tmp/
 *.log
 npm-debug.log*
 
+# Downloaded election data (fetched fresh at deploy time)
+data/
+
 # Exclude docs that shouldn't be deployed
 !OpenDataDocumentation.txt

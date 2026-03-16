@@ -4,8 +4,8 @@
  */
 
 const CONFIG = {
-    // Base URL for the election data API (OpenData CSV files live under daten/opendata/)
-    BASE_URL: 'https://votemanager-ffm.ekom21cdn.de/2026-03-15/06412000/daten/opendata',
+    // Base URL for election data CSV files (downloaded at deploy time to avoid CORS issues)
+    BASE_URL: './data',
     
     // Election date
     ELECTION_DATE: '2026-03-15',
