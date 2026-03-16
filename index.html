@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankfurt am Main - Wahlergebnisse 2026 | Umfassende Datenanalyse</title>
+    <meta name="description" content="Interaktive Datenanalyse der Kommunalwahlen in Frankfurt am Main 2026 - Stadtverordnetenwahl, Ortsbeiratswahl und Ausländerbeiratswahl">
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-vote-yea"></i>
+                    <div>
+                        <h1>Frankfurt am Main</h1>
+                        <p class="subtitle">Kommunalwahlen 2026 - Datenanalyse</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span class="election-date"><i class="fas fa-calendar-alt"></i> 15. März 2026</span>
+                    <span class="data-status" id="dataStatus"><i class="fas fa-sync-alt fa-spin"></i> Lade Daten...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-tab="overview"><i class="fas fa-chart-pie"></i> Übersicht</li>
+                <li class="nav-tab" data-tab="stadtverordnete"><i class="fas fa-landmark"></i> Stadtverordnetenwahl</li>
+                <li class="nav-tab" data-tab="ortsbeirat"><i class="fas fa-map-marked-alt"></i> Ortsbeiratswahlen</li>
+                <li class="nav-tab" data-tab="auslaenderbeirat"><i class="fas fa-globe"></i> Ausländerbeiratswahl</li>
+                <li class="nav-tab" data-tab="map"><i class="fas fa-map"></i> Karte</li>
+                <li class="nav-tab" data-tab="comparison"><i class="fas fa-balance-scale"></i> Vergleiche</li>
+                <li class="nav-tab" data-tab="candidates"><i class="fas fa-users"></i> Kandidaten</li>
+                <li class="nav-tab" data-tab="analysis"><i class="fas fa-chart-line"></i> Tiefenanalyse</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Overview Tab -->
+            <section id="overview" class="tab-content active">
+                <h2><i class="fas fa-chart-pie"></i> Wahlübersicht Frankfurt am Main 2026</h2>
+                
+                <!-- Key Metrics Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="totalEligible">-</span>
+                            <span class="metric-label">Wahlberechtigte</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-person-booth"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="totalVoters">-</span>
+                            <span class="metric-label">Wähler/innen</span>
+                        </div>
+                    </div>
+                    <div class="metric-card highlight">
+                        <div class="metric-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="turnoutPercent">-</span>
+                            <span class="metric-label">Wahlbeteiligung</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-check-double"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="validVotes">-</span>
+                            <span class="metric-label">Gültige Stimmen</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-times-circle"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="invalidVotes">-</span>
+                            <span class="metric-label">Ungültige Stimmzettel</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-building"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="districtsReported">-</span>
+                            <span class="metric-label">Bezirke ausgezählt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overview Charts -->
+                <div class="charts-grid">
+                    <div class="chart-container large">
+                        <h3><i class="fas fa-chart-bar"></i> Stadtverordnetenwahl - Ergebnis nach Parteien</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="overviewPartyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-pie"></i> Stimmenverteilung</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="overviewPieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-doughnut"></i> Wahlbeteiligung nach Typ</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="turnoutTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Table -->
+                <div class="data-table-container">
+                    <h3><i class="fas fa-table"></i> Alle Wahlen im Überblick</h3>
+                    <table class="data-table" id="overviewTable">
+                        <thead>
+                            <tr>
+                                <th>Wahl</th>
+                                <th>Wahlberechtigte</th>
+                                <th>Wähler/innen</th>
+                                <th>Beteiligung</th>
+                                <th>Gültige Stimmen</th>
+                                <th>Ungültige</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="overviewTableBody">
+                            <tr><td colspan="7" class="loading">Lade Daten...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Stadtverordnetenwahl Tab -->
+            <section id="stadtverordnete" class="tab-content">
+                <h2><i class="fas fa-landmark"></i> Stadtverordnetenwahl - Detailanalyse</h2>
+                
+                <!-- Sub-navigation -->
+                <div class="sub-nav">
+                    <button class="sub-nav-btn active" data-subtab="sv-overview">Übersicht</button>
+                    <button class="sub-nav-btn" data-subtab="sv-districts">Nach Bezirken</button>
+                    <button class="sub-nav-btn" data-subtab="sv-wards">Nach Wahlbezirken</button>
+                    <button class="sub-nav-btn" data-subtab="sv-trend">Trend vs. Endergebnis</button>
+                </div>
+
+                <!-- Stadtverordnete Overview -->
+                <div id="sv-overview" class="sub-tab-content active">
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> Stimmen nach Parteien (absolut)</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="svPartyBarChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-chart-pie"></i> Prozentuale Verteilung</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="svPartyPieChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-exchange-alt"></i> Unverändert vs. Verändert</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="svChangedChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailed Party Table -->
+                    <div class="data-table-container">
+                        <h3><i class="fas fa-list-ol"></i> Detaillierte Parteiergebnisse</h3>
+                        <table class="data-table sortable" id="svPartyTable">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rang</th>
+                                    <th data-sort="party">Partei</th>
+                                    <th data-sort="votes">Stimmen</th>
+                                    <th data-sort="percent">Prozent</th>
+                                    <th data-sort="unchanged">Unverändert</th>
+                                    <th data-sort="changed">Verändert</th>
+                                    <th data-sort="panasch">Panaschiert</th>
+                                </tr>
+                            </thead>
+                            <tbody id="svPartyTableBody">
+                                <tr><td colspan="7" class="loading">Lade Daten...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Districts Analysis -->
+                <div id="sv-districts" class="sub-tab-content">
+                    <div class="filter-bar">
+                        <label><i class="fas fa-filter"></i> Sortierung:</label>
+                        <select id="svDistrictSort">
+                            <option value="name">Nach Name</option>
+                            <option value="turnout-desc">Höchste Beteiligung</option>
+                            <option value="turnout-asc">Niedrigste Beteiligung</option>
+                            <option value="voters-desc">Meiste Wähler</option>
+                        </select>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-bar"></i> Wahlbeteiligung nach Ortsbezirken</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="svDistrictTurnoutChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> Führende Partei pro Ortsbezirk</h3>
+                            <div class="chart-wrapper tall">
+                                <canvas id="svDistrictLeaderChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-table-container">
+                        <h3><i class="fas fa-table"></i> Ergebnisse nach Ortsbezirken</h3>
+                        <table class="data-table sortable" id="svDistrictTable">
+                            <thead>
+                                <tr>
+                                    <th>Ortsbezirk</th>
+                                    <th>Wahlberechtigte</th>
+                                    <th>Wähler</th>
+                                    <th>Beteiligung</th>
+                                    <th>Stärkste Partei</th>
+                                    <th>Stimmen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="svDistrictTableBody">
+                                <tr><td colspan="6" class="loading">Lade Daten...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Wahlbezirke Analysis -->
+                <div id="sv-wards" class="sub-tab-content">
+                    <div class="filter-bar">
+                        <label><i class="fas fa-map-marker-alt"></i> Ortsbezirk:</label>
+                        <select id="svWardDistrictFilter">
+                            <option value="all">Alle anzeigen</option>
+                        </select>
+                        <label><i class="fas fa-sort"></i> Sortierung:</label>
+                        <select id="svWardSort">
+                            <option value="number">Nach Nummer</option>
+                            <option value="turnout-desc">Höchste Beteiligung</option>
+                            <option value="turnout-asc">Niedrigste Beteiligung</option>
+                        </select>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-area"></i> Wahlbeteiligung pro Wahlbezirk</h3>
+                        <div class="chart-wrapper extra-tall">
+                            <canvas id="svWardTurnoutChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="data-table-container scrollable">
+                        <h3><i class="fas fa-table"></i> Alle Wahlbezirke</h3>
+                        <table class="data-table sortable" id="svWardTable">
+                            <thead>
+                                <tr>
+                                    <th>Nr</th>
+                                    <th>Wahlbezirk</th>
+                                    <th>Wahlberechtigte</th>
+                                    <th>Wähler</th>
+                                    <th>Beteiligung</th>
+                                    <th>Gültig</th>
+                                    <th>Ungültig</th>
+                                </tr>
+                            </thead>
+                            <tbody id="svWardTableBody">
+                                <tr><td colspan="7" class="loading">Lade Daten...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Trend vs Final -->
+                <div id="sv-trend" class="sub-tab-content">
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-line"></i> Trend vs. Endergebnis Vergleich</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="svTrendCompareChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-info-circle"></i> Erklärung</h3>
+                            <div class="info-box">
+                                <p><strong>Trendwahl:</strong> Basiert auf Stapel 1 - Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen wurde.</p>
+                                <p><strong>Endergebnis:</strong> Vollständige Auszählung aller Stimmzettel inkl. veränderter und panaschierter Stimmen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ortsbeiratswahl Tab -->
+            <section id="ortsbeirat" class="tab-content">
+                <h2><i class="fas fa-map-marked-alt"></i> Ortsbeiratswahlen - 16 Ortsbezirke</h2>
+                
+                <!-- District Selector -->
+                <div class="district-selector">
+                    <h3>Ortsbezirk auswählen:</h3>
+                    <div class="district-buttons" id="ortsbezirkButtons">
+                        <!-- Buttons will be generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- District Overview -->
+                <div id="ob-overview" class="district-content">
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3 id="obDistrictTitle"><i class="fas fa-chart-bar"></i> Ergebnis</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="obPartyChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-chart-pie"></i> Verteilung</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="obPieChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-info-circle"></i> Kennzahlen</h3>
+                            <div class="stats-box" id="obStats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Wahlberechtigte</span>
+                                    <span class="stat-value" id="obEligible">-</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Wähler/innen</span>
+                                    <span class="stat-value" id="obVoters">-</span>
+                                </div>
+                                <div class="stat-item highlight">
+                                    <span class="stat-label">Wahlbeteiligung</span>
+                                    <span class="stat-value" id="obTurnout">-</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Gültige Stimmen</span>
+                                    <span class="stat-value" id="obValid">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Party results table -->
+                    <div class="data-table-container">
+                        <h3><i class="fas fa-list"></i> Parteiergebnisse im Detail</h3>
+                        <table class="data-table sortable" id="obPartyTable">
+                            <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Partei</th>
+                                    <th>Stimmen</th>
+                                    <th>Prozent</th>
+                                    <th>Unverändert</th>
+                                    <th>Verändert</th>
+                                </tr>
+                            </thead>
+                            <tbody id="obPartyTableBody">
+                                <tr><td colspan="6" class="loading">Wählen Sie einen Ortsbezirk</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- All Districts Comparison -->
+                <div class="chart-container full-width" style="margin-top: 2rem;">
+                    <h3><i class="fas fa-chart-bar"></i> Wahlbeteiligung aller Ortsbezirke</h3>
+                    <div class="chart-wrapper tall">
+                        <canvas id="obAllDistrictsTurnout"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ausländerbeiratswahl Tab -->
+            <section id="auslaenderbeirat" class="tab-content">
+                <h2><i class="fas fa-globe"></i> Ausländerbeiratswahl</h2>
+                
+                <div class="info-banner">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Der Ausländerbeirat vertritt die Interessen der ausländischen Einwohner*innen in Frankfurt. Wahlberechtigt sind alle ausländischen Staatsangehörigen, die seit mindestens sechs Monaten in Frankfurt wohnen.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="abEligible">-</span>
+                            <span class="metric-label">Wahlberechtigte</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-person-booth"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="abVoters">-</span>
+                            <span class="metric-label">Wähler/innen</span>
+                        </div>
+                    </div>
+                    <div class="metric-card highlight">
+                        <div class="metric-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="abTurnout">-</span>
+                            <span class="metric-label">Wahlbeteiligung</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-check"></i></div>
+                        <div class="metric-content">
+                            <span class="metric-value" id="abValidVotes">-</span>
+                            <span class="metric-label">Gültige Stimmen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container large">
+                        <h3><i class="fas fa-chart-bar"></i> Ergebnis nach Listen</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="abPartyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-pie"></i> Stimmenverteilung</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="abPieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-container">
+                    <h3><i class="fas fa-list-ol"></i> Detaillierte Ergebnisse</h3>
+                    <table class="data-table sortable" id="abPartyTable">
+                        <thead>
+                            <tr>
+                                <th>Rang</th>
+                                <th>Liste</th>
+                                <th>Stimmen</th>
+                                <th>Prozent</th>
+                            </tr>
+                        </thead>
+                        <tbody id="abPartyTableBody">
+                            <tr><td colspan="4" class="loading">Lade Daten...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Map Tab -->
+            <section id="map" class="tab-content">
+                <h2><i class="fas fa-map"></i> Interaktive Karte</h2>
+                
+                <div class="map-controls">
+                    <div class="control-group">
+                        <label><i class="fas fa-layer-group"></i> Anzeige:</label>
+                        <select id="mapDataType">
+                            <option value="turnout">Wahlbeteiligung</option>
+                            <option value="winner">Stärkste Partei</option>
+                            <option value="cdu">CDU Stimmenanteil</option>
+                            <option value="spd">SPD Stimmenanteil</option>
+                            <option value="gruene">GRÜNE Stimmenanteil</option>
+                            <option value="afd">AfD Stimmenanteil</option>
+                            <option value="fdp">FDP Stimmenanteil</option>
+                            <option value="linke">LINKE Stimmenanteil</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-vote-yea"></i> Wahl:</label>
+                        <select id="mapElectionType">
+                            <option value="stadtverordnete">Stadtverordnetenwahl</option>
+                            <option value="ortsbeirat">Ortsbeiratswahl</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="frankfurtMap" class="map-container"></div>
+                
+                <div class="map-legend" id="mapLegend">
+                    <h4>Legende</h4>
+                    <div class="legend-items" id="legendItems"></div>
+                </div>
+            </section>
+
+            <!-- Comparison Tab -->
+            <section id="comparison" class="tab-content">
+                <h2><i class="fas fa-balance-scale"></i> Vergleichsanalysen</h2>
+
+                <div class="sub-nav">
+                    <button class="sub-nav-btn active" data-subtab="comp-elections">Wahlen vergleichen</button>
+                    <button class="sub-nav-btn" data-subtab="comp-districts">Bezirke vergleichen</button>
+                    <button class="sub-nav-btn" data-subtab="comp-parties">Parteien vergleichen</button>
+                </div>
+
+                <!-- Elections Comparison -->
+                <div id="comp-elections" class="sub-tab-content active">
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-bar"></i> Wahlbeteiligung im Vergleich</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="compTurnoutChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> CDU Ergebnisse nach Wahl</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="compCDUChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> SPD Ergebnisse nach Wahl</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="compSPDChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Districts Comparison -->
+                <div id="comp-districts" class="sub-tab-content">
+                    <div class="filter-bar">
+                        <label><i class="fas fa-map-marker"></i> Bezirk 1:</label>
+                        <select id="compDistrict1"></select>
+                        <label><i class="fas fa-map-marker"></i> Bezirk 2:</label>
+                        <select id="compDistrict2"></select>
+                        <button id="compDistrictsBtn" class="btn-primary"><i class="fas fa-exchange-alt"></i> Vergleichen</button>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-bar"></i> Parteiergebnisse Vergleich</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="compDistrictsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parties Comparison -->
+                <div id="comp-parties" class="sub-tab-content">
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-radar"></i> Parteistärke nach Ortsbezirken</h3>
+                        <div class="chart-wrapper extra-tall">
+                            <canvas id="compPartiesRadar"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-bar"></i> Stimmenvergleich Top-Parteien</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="compPartiesBar"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Candidates Tab -->
+            <section id="candidates" class="tab-content">
+                <h2><i class="fas fa-users"></i> Kandidatenanalyse</h2>
+
+                <div class="filter-bar">
+                    <label><i class="fas fa-vote-yea"></i> Wahl:</label>
+                    <select id="candElection">
+                        <option value="stadtverordnete">Stadtverordnetenwahl</option>
+                    </select>
+                    <label><i class="fas fa-flag"></i> Partei:</label>
+                    <select id="candParty">
+                        <option value="">Partei wählen...</option>
+                    </select>
+                </div>
+
+                <div class="chart-container full-width">
+                    <h3 id="candChartTitle"><i class="fas fa-chart-bar"></i> Kandidatenstimmen</h3>
+                    <div class="chart-wrapper extra-tall">
+                        <canvas id="candBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="data-table-container scrollable">
+                    <h3><i class="fas fa-list"></i> Kandidatenliste</h3>
+                    <table class="data-table sortable" id="candTable">
+                        <thead>
+                            <tr>
+                                <th>Listenplatz</th>
+                                <th>Stimmen</th>
+                                <th>Anteil an Parteistimmen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="candTableBody">
+                            <tr><td colspan="3" class="loading">Wählen Sie eine Partei</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Deep Analysis Tab -->
+            <section id="analysis" class="tab-content">
+                <h2><i class="fas fa-chart-line"></i> Tiefenanalyse</h2>
+
+                <div class="sub-nav">
+                    <button class="sub-nav-btn active" data-subtab="ana-panasch">Panaschieren</button>
+                    <button class="sub-nav-btn" data-subtab="ana-turnout">Wahlbeteiligung</button>
+                    <button class="sub-nav-btn" data-subtab="ana-correlations">Korrelationen</button>
+                    <button class="sub-nav-btn" data-subtab="ana-voting-patterns">Abstimmungsmuster</button>
+                </div>
+
+                <!-- Panaschieren Analysis -->
+                <div id="ana-panasch" class="sub-tab-content active">
+                    <div class="info-banner">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Panaschieren</strong> bedeutet, dass Wähler*innen Kandidat*innen verschiedener Parteien auf einem Stimmzettel wählen. Diese Analyse zeigt, welche Parteien besonders von panaschierenden Wählern profitieren.</p>
+                    </div>
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> Panaschierte Stimmen nach Partei</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="anaPanaschChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-chart-pie"></i> Anteil panaschierter Stimmzettel</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="anaPanaschPieChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-bar"></i> Unverändert vs. Verändert vs. Panaschiert</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="anaVoteTypesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Turnout Analysis -->
+                <div id="ana-turnout" class="sub-tab-content">
+                    <div class="charts-grid">
+                        <div class="chart-container large">
+                            <h3><i class="fas fa-chart-bar"></i> Wahlbeteiligung nach Ortsbezirk</h3>
+                            <div class="chart-wrapper tall">
+                                <canvas id="anaTurnoutDistrictChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3><i class="fas fa-chart-pie"></i> Wählertypen</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="anaVoterTypeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Höchste Beteiligung</h4>
+                            <p id="anaHighestTurnout" class="stat-highlight">-</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Niedrigste Beteiligung</h4>
+                            <p id="anaLowestTurnout" class="stat-highlight">-</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Durchschnitt</h4>
+                            <p id="anaAvgTurnout" class="stat-highlight">-</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Standardabweichung</h4>
+                            <p id="anaStdTurnout" class="stat-highlight">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Correlations -->
+                <div id="ana-correlations" class="sub-tab-content">
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-project-diagram"></i> Korrelation: Wahlbeteiligung vs. CDU-Anteil</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="anaCorr1Chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-project-diagram"></i> Korrelation: Wahlbeteiligung vs. Grüne-Anteil</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="anaCorr2Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voting Patterns -->
+                <div id="ana-voting-patterns" class="sub-tab-content">
+                    <div class="chart-container full-width">
+                        <h3><i class="fas fa-chart-area"></i> Stimmzetteltypen nach Partei</h3>
+                        <div class="chart-wrapper tall">
+                            <canvas id="anaVotingPatternChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="info-banner">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Diese Analyse zeigt, wie unterschiedlich die Wähler der verschiedenen Parteien ihre Stimmzettel ausfüllen. Hohe "Unverändert"-Werte deuten auf starke Parteiloyalität hin, während hohe "Panaschiert"-Werte auf taktisches Wählen hindeuten.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Datenquelle</h4>
+                    <p>Daten bereitgestellt vom Wahlamt der Stadt Frankfurt am Main via Open Data API.</p>
+                    <p><a href="https://votemanager-ffm.ekom21cdn.de/2026-03-15/06412000/praesentation/opendata.html" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> OpenData Portal</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hinweise</h4>
+                    <p>Diese Visualisierung dient der Datenanalyse und Transparenz. Alle Angaben ohne Gewähr.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Technologie</h4>
+                    <p>Erstellt mit Chart.js, Leaflet und modernem JavaScript.</p>
+                    <p>Gehostet auf GitHub Pages.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Frankfurt Wahldaten Dashboard | <a href="https://github.com/ProfessorQuantumUniverse/FFM-Elections-Dashboard">GitHub Repository</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Lade Wahldaten...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3><i class="fas fa-exclamation-triangle"></i> Fehler beim Laden der Daten</h3>
+            <p id="errorMessage">Es konnte keine Verbindung zum Datenserver hergestellt werden.</p>
+            <button id="retryBtn" class="btn-primary"><i class="fas fa-redo"></i> Erneut versuchen</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
