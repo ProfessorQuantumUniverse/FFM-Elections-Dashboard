@@ -176,6 +176,9 @@ class ElectionsDashboard {
         this.showLoading();
         
         try {
+            // Reset sample data tracking before loading
+            if (window.dataLoader) window.dataLoader.usedSampleData = false;
+
             // Load all primary data in parallel
             const [svGemeinde, svOrtsbezirke, svWahlbezirke, svTrend, abGemeinde] = await Promise.all([
                 dataLoader.loadSVGemeinde().catch(e => { console.warn('SV Gemeinde failed:', e); return []; }),
@@ -190,29 +193,37 @@ class ElectionsDashboard {
             this.data.svWahlbezirke = svWahlbezirke;
             this.data.svTrend = svTrend;
             this.data.abGemeinde = abGemeinde;
-            
+
+            const usingSample = !!(window.dataLoader && window.dataLoader.usedSampleData);
+
             // Update status
-            this.updateDataStatus(true);
+            this.updateDataStatus(true, usingSample);
             
         } catch (error) {
             console.error('Error loading initial data:', error);
             this.showError('Fehler beim Laden der Wahldaten. Bitte später erneut versuchen.');
-            this.updateDataStatus(false);
+            this.updateDataStatus(false, true);
         }
     }
 
     /**
      * Update data status indicator
+     * @param {boolean} success - Whether data loaded successfully
+     * @param {boolean} usingSample - Whether sample/fallback data is being used
      */
-    updateDataStatus(success) {
+    updateDataStatus(success, usingSample) {
         const statusEl = document.getElementById('dataStatus');
         if (statusEl) {
-            if (success) {
-                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Daten geladen';
+            if (success && !usingSample) {
+                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Live-Daten';
                 statusEl.style.color = '#48bb78';
+            } else if (success && usingSample) {
+                statusEl.innerHTML = '<i class="fas fa-database"></i> Demo-Daten';
+                statusEl.style.color = '#ed8936';
+                statusEl.title = 'Die Live-API war nicht erreichbar. Es werden Demo-Daten angezeigt.';
             } else {
                 statusEl.innerHTML = '<i class="fas fa-exclamation-circle"></i> Offline-Modus';
-                statusEl.style.color = '#ed8936';
+                statusEl.style.color = '#e53e3e';
             }
         }
     }
@@ -413,15 +424,17 @@ class ElectionsDashboard {
 
     /**
      * Render Trend Comparison
+     * Uses the separate Trend file if available; otherwise falls back to
+     * the Trend_<pos> columns embedded in the final Stadtverordnetenwahl file.
      */
     async renderTrendComparison() {
-        if (!this.data.svGemeinde || !this.data.svTrend) return;
-        
+        if (!this.data.svGemeinde || !this.data.svGemeinde[0]) return;
+
         const final = this.data.svGemeinde[0];
-        const trend = this.data.svTrend[0];
-        
-        if (!final || !trend) return;
-        
+
+        // Try separate trend file first; fall back to Trend_N cols in the final file
+        const trend = (this.data.svTrend && this.data.svTrend[0]) ? this.data.svTrend[0] : final;
+
         const finalResults = dataLoader.addPercentages(
             dataLoader.extractPartyResults(final, CONFIG.PARTIES_SV)
         );
@@ -440,7 +453,7 @@ class ElectionsDashboard {
                 });
             }
         }
-        
+
         const trendWithPercent = dataLoader.addPercentages(trendResults);
         
         // Create comparison chart
@@ -510,6 +523,9 @@ class ElectionsDashboard {
             if (!districtData) {
                 districtData = await dataLoader.loadOBDistrict(district.slug);
                 this.data.ortsbeirat.set(district.slug, districtData);
+                // Update status in case sample data was used for this district
+                const usingSample = !!(window.dataLoader && window.dataLoader.usedSampleData);
+                this.updateDataStatus(true, usingSample);
             }
             
             this.renderOrtsbezirkData(district, districtData);
@@ -536,8 +552,8 @@ class ElectionsDashboard {
         document.getElementById('obTurnout').textContent = formatPercent(metrics.turnout);
         document.getElementById('obValid').textContent = formatNumber(metrics.valid);
         
-        // Extract party results (need to determine which parties are in this district)
-        const partyResults = this.extractOrtsbeiratPartyResults(aggregated);
+        // Extract party results using district-specific party config
+        const partyResults = this.extractOrtsbeiratPartyResults(aggregated, district);
         const withPercent = dataLoader.addPercentages(partyResults);
         
         // Charts
@@ -549,23 +565,34 @@ class ElectionsDashboard {
     }
 
     /**
-     * Extract party results for Ortsbeiratswahl (dynamic party detection)
+     * Extract party results for Ortsbeiratswahl using district-specific party definitions
+     * @param {Object} row - Aggregated data row
+     * @param {Object} district - District object with slug
+     * @returns {Array} Party results sorted by votes
      */
-    extractOrtsbeiratPartyResults(row) {
+    extractOrtsbeiratPartyResults(row, district) {
         const results = [];
-        
+        const partyDefs = (district && CONFIG.PARTIES_OB[district.slug]) || null;
+
         // Find all D* columns (party votes)
         for (const [key, value] of Object.entries(row)) {
             if (/^D\d+$/.test(key) && typeof value === 'number' && value > 0) {
-                // Try to find party info in CONFIG or use generic
-                const partyInfo = CONFIG.PARTIES_SV[key] || { 
-                    name: key, 
-                    color: CONFIG.CHART_COLORS[results.length % CONFIG.CHART_COLORS.length] 
-                };
-                
+                let partyInfo;
+                if (partyDefs && partyDefs[key]) {
+                    partyInfo = partyDefs[key];
+                } else {
+                    // Fallback: use a generic label with a chart color
+                    partyInfo = {
+                        name: key,
+                        fullName: key,
+                        color: CONFIG.CHART_COLORS[results.length % CONFIG.CHART_COLORS.length]
+                    };
+                }
+
                 results.push({
                     key,
                     name: partyInfo.name,
+                    fullName: partyInfo.fullName || partyInfo.name,
                     color: partyInfo.color,
                     votes: value,
                     unchanged: row[`unveraendert_${key.substring(1)}`] || 0,
@@ -573,7 +600,7 @@ class ElectionsDashboard {
                 });
             }
         }
-        
+
         return results.sort((a, b) => b.votes - a.votes);
     }
 

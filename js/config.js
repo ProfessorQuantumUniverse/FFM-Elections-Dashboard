@@ -120,6 +120,212 @@ const CONFIG = {
         D26: { name: 'LINKE', color: '#be3075' }
     },
     
+    // Per-district party definitions for Ortsbeiratswahl
+    // Sourced from OpenDataDocumentation.txt - each district has different party lists
+    PARTIES_OB: {
+        'Innenstadt-I': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D8:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D9:  { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D10: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D11: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D12: { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' }
+        },
+        'Innenstadt-II': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D9:  { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D10: { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' },
+            D11: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Innenstadt-III': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' },
+            D8:  { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D9:  { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D10: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D11: { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D12: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D13: { name: 'Gartenpartei', fullName: 'Gartenpartei Frankfurt am Main',                                                                           color: '#228b22' }
+        },
+        'Bornheim-Ostend': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' },
+            D8:  { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D9:  { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D10: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D11: { name: 'Gartenpartei', fullName: 'Gartenpartei Frankfurt am Main',                                                                           color: '#228b22' },
+            D12: { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D13: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Sued': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D9:  { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D10: { name: 'BIG',          fullName: 'Bündnis für Innovation & Gerechtigkeit',                                                                   color: '#00aa00' },
+            D11: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D12: { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' },
+            D13: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' }
+        },
+        'West': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D9:  { name: 'Fortschritt',  fullName: 'Partei des Fortschritts',                                                                                  color: '#8b4513' },
+            D10: { name: 'FFM-Sozial!',  fullName: 'Frankfurt-Sozial!',                                                                                        color: '#ff4500' },
+            D11: { name: 'BIG',          fullName: 'Bündnis für Innovation & Gerechtigkeit',                                                                   color: '#00aa00' },
+            D12: { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D13: { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' },
+            D14: { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' },
+            D15: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Mitte-West': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'farbechten',   fullName: 'die farbechten / Die Linke',                                                                               color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D9:  { name: 'Gem. Mitte-W', fullName: 'Gemeinsam für Mitte-West',                                                                                 color: '#aaaaaa' },
+            D10: { name: 'ÖkoLinX',      fullName: 'ÖkoLinX',                                                                                                 color: '#ff5c5c' },
+            D11: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D12: { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' }
+        },
+        // Nord-West: AfD did not submit a list for this district's Ortsbeiratswahl (no D2 per documentation)
+        'Nord-West': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D8:  { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' },
+            D9:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' }
+        },
+        'Mitte-Nord': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D9:  { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' }
+        },
+        'Nord-Ost': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D8:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D9:  { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' },
+            D10: { name: 'FFM-Sozial!',  fullName: 'Frankfurt-Sozial!',                                                                                        color: '#ff4500' },
+            D11: { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D12: { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' }
+        },
+        'Ost': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D2:  { name: 'AfD',          fullName: 'Alternative für Deutschland',                                                                              color: '#009ee0' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D7:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D8:  { name: 'FFM-Sozial!',  fullName: 'Frankfurt-Sozial!',                                                                                        color: '#ff4500' },
+            D9:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
+            D10: { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' }
+        },
+        // Kalbach-Riedberg: AfD did not submit a list for this district's Ortsbeiratswahl (no D2 per documentation)
+        'Kalbach-Riedberg': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'Volt',         fullName: 'Volt Deutschland',                                                                                         color: '#562883' },
+            D7:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D8:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D9:  { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
+            D10: { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
+            D11: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        // Nieder-Erlenbach, Harheim, Nieder-Eschbach, Bergen-Enkheim: AfD did not submit lists for these
+        // districts' Ortsbeiratswahl (no D2 per documentation)
+        'Nieder-Erlenbach': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D7:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Harheim': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D7:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Nieder-Eschbach': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D7:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D8:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        },
+        'Bergen-Enkheim': {
+            D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
+            D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
+            D4:  { name: 'GRÜNE',        fullName: 'BÜNDNIS 90/DIE GRÜNEN',                                                                                   color: '#46962b' },
+            D5:  { name: 'FDP',          fullName: 'Freie Demokratische Partei',                                                                               color: '#ffed00' },
+            D6:  { name: 'WIR B-E',      fullName: 'WIR BERGEN-ENKHEIMER',                                                                                    color: '#ff8800' },
+            D7:  { name: 'LINKE',        fullName: 'Die Linke',                                                                                                color: '#be3075' },
+            D8:  { name: 'BFF',          fullName: 'Bürger Für Frankfurt',                                                                                     color: '#ff6600' },
+            D9:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
+        }
+    },
+
     // Chart colors palette
     CHART_COLORS: [
         '#003366', '#e3000f', '#46962b', '#000000', '#ffed00',
