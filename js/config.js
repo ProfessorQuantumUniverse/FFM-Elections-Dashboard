@@ -4,8 +4,8 @@
  */
 
 const CONFIG = {
-    // Base URL for the election data API
-    BASE_URL: 'https://votemanager-ffm.ekom21cdn.de/2026-03-15/06412000/praesentation',
+    // Base URL for the election data API (OpenData CSV files live under daten/opendata/)
+    BASE_URL: 'https://votemanager-ffm.ekom21cdn.de/2026-03-15/06412000/daten/opendata',
     
     // Election date
     ELECTION_DATE: '2026-03-15',
@@ -13,35 +13,36 @@ const CONFIG = {
     // AGS (Amtlicher Gemeindeschlüssel) for Frankfurt am Main
     AGS: '06412000',
     
-    // Data file endpoints
+    // Data file endpoints (names from open_data.json on the votemanager server)
     ENDPOINTS: {
         // Wahllokale und Straßen
         WAHLLOKALE: 'opendata-wahllokale.csv',
         STRASSEN: 'opendata-strassen.csv',
         
-        // Stadtverordnetenwahl
-        SV_TREND_GEMEINDE: 'Open-Data-Stadtverordnetenwahl-Trend-Gemeinde.csv',
-        SV_TREND_ORTSBEZIRKE: 'Open-Data-Stadtverordnetenwahl-Trend-Ortsbezirke.csv',
-        SV_TREND_ORTSTEILE: 'Open-Data-Stadtverordnetenwahl-Trend-Ortsteile.csv',
-        SV_TREND_GRUPPIERUNGEN: 'Open-Data-Stadtverordnetenwahl-Trend-Gruppierungen.csv',
-        SV_TREND_WAHLBEZIRKE: 'Open-Data-Stadtverordnetenwahl-Trend-Wahlbezirke.csv',
+        // Stadtverordnetenwahl (Trendwahl)
+        SV_TREND_GEMEINDE: 'Open-Data-06412000-Stadtverordnetenwahl-_Trendwahl_-Gemeinde.csv',
+        SV_TREND_ORTSBEZIRKE: 'Open-Data-06412000-Stadtverordnetenwahl-_Trendwahl_-Ortsbezirk.csv',
+        SV_TREND_ORTSTEILE: 'Open-Data-06412000-Stadtverordnetenwahl-_Trendwahl_-Ortsteil.csv',
+        SV_TREND_GRUPPIERUNGEN: 'Open-Data-06412000-Stadtverordnetenwahl-_Trendwahl_-Gruppierung.csv',
+        SV_TREND_WAHLBEZIRKE: 'Open-Data-06412000-Stadtverordnetenwahl-_Trendwahl_-Wahlbezirk.csv',
         
-        SV_GEMEINDE: 'Open-Data-Stadtverordnetenwahl-Gemeinde.csv',
-        SV_ORTSBEZIRKE: 'Open-Data-Stadtverordnetenwahl-Ortsbezirke.csv',
-        SV_ORTSTEILE: 'Open-Data-Stadtverordnetenwahl-Ortsteile.csv',
-        SV_GRUPPIERUNGEN: 'Open-Data-Stadtverordnetenwahl-Gruppierungen.csv',
-        SV_WAHLBEZIRKE: 'Open-Data-Stadtverordnetenwahl-Wahlbezirke.csv',
+        // Stadtverordnetenwahl
+        SV_GEMEINDE: 'Open-Data-06412000-Stadtverordnetenwahl-Gemeinde.csv',
+        SV_ORTSBEZIRKE: 'Open-Data-06412000-Stadtverordnetenwahl-Ortsbezirk.csv',
+        SV_ORTSTEILE: 'Open-Data-06412000-Stadtverordnetenwahl-Ortsteil.csv',
+        SV_GRUPPIERUNGEN: 'Open-Data-06412000-Stadtverordnetenwahl-Gruppierung.csv',
+        SV_WAHLBEZIRKE: 'Open-Data-06412000-Stadtverordnetenwahl-Wahlbezirk.csv',
         
         // Ortsbeiratswahlen
-        OB_TREND_WAHLBEZIRKE: 'Open-Data-Ortsbeiratswahl-Trend-',
-        OB_WAHLBEZIRKE: 'Open-Data-Ortsbeiratswahl-',
+        OB_TREND_WAHLBEZIRKE: 'Open-Data-06412000-Ortsbeiratswahl-_Trendwahl_-',
+        OB_WAHLBEZIRKE: 'Open-Data-06412000-Ortsbeiratswahl-',
         
         // Ausländerbeiratswahl
-        AB_GEMEINDE: 'Open-Data-Auslaenderbeiratswahl-Gemeinde.csv',
-        AB_ORTSBEZIRKE: 'Open-Data-Auslaenderbeiratswahl-Ortsbezirke.csv',
-        AB_ORTSTEILE: 'Open-Data-Auslaenderbeiratswahl-Ortsteile.csv',
-        AB_GRUPPIERUNGEN: 'Open-Data-Auslaenderbeiratswahl-Gruppierungen.csv',
-        AB_WAHLBEZIRKE: 'Open-Data-Auslaenderbeiratswahl-Wahlbezirke.csv'
+        AB_GEMEINDE: 'Open-Data-06412000-Auslaenderbeiratswahl-Gemeinde.csv',
+        AB_ORTSBEZIRKE: 'Open-Data-06412000-Auslaenderbeiratswahl-Ortsbezirk.csv',
+        AB_ORTSTEILE: 'Open-Data-06412000-Auslaenderbeiratswahl-Ortsteil.csv',
+        AB_GRUPPIERUNGEN: 'Open-Data-06412000-Auslaenderbeiratswahl-Gruppierung.csv',
+        AB_WAHLBEZIRKE: 'Open-Data-06412000-Auslaenderbeiratswahl-Wahlbezirk.csv'
     },
     
     // Ortsbezirke in Frankfurt
