@@ -168,7 +168,7 @@ class DataLoader {
      * @param {string} districtSlug - District slug (e.g., 'Innenstadt-I')
      */
     async loadOBDistrict(districtSlug) {
-        const filename = `${CONFIG.ENDPOINTS.OB_WAHLBEZIRKE}${districtSlug}-Wahlbezirke.csv`;
+        const filename = `${CONFIG.ENDPOINTS.OB_WAHLBEZIRKE}${districtSlug}.csv`;
         return this.fetchCSV(filename);
     }
 
@@ -177,7 +177,7 @@ class DataLoader {
      * @param {string} districtSlug - District slug
      */
     async loadOBTrendDistrict(districtSlug) {
-        const filename = `${CONFIG.ENDPOINTS.OB_TREND_WAHLBEZIRKE}${districtSlug}-Wahlbezirke.csv`;
+        const filename = `${CONFIG.ENDPOINTS.OB_TREND_WAHLBEZIRKE}${districtSlug}.csv`;
         return this.fetchCSV(filename);
     }
 
