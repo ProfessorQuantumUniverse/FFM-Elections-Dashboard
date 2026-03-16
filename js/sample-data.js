@@ -215,7 +215,7 @@ const SAMPLE_DATA = {
         ],
         'Nord-West': [
             { "gebiet-nr": "801", "gebiet-name": "Nordend West", "A": 4200, "B": 2310, "B1": 810, "C": 42, "D": 173250, "max-schnellmeldungen": 5, "anz-schnellmeldungen": 5,
-              "D1": 48000, "D3": 30000, "D4": 42000, "D5": 16000, "D6": 10000, "D7": 7000, "D8": 6000, "D9": 6250, "max-schnellmeldungen": 5, "anz-schnellmeldungen": 5 }
+              "D1": 48000, "D3": 30000, "D4": 42000, "D5": 16000, "D6": 10000, "D7": 7000, "D8": 6000, "D9": 6250 }
         ],
         'Mitte-Nord': [
             { "gebiet-nr": "901", "gebiet-name": "Nordend Ost", "A": 4600, "B": 2530, "B1": 890, "C": 46, "D": 189750, "max-schnellmeldungen": 6, "anz-schnellmeldungen": 6,
@@ -227,7 +227,7 @@ const SAMPLE_DATA = {
         ],
         'Ost': [
             { "gebiet-nr": "1101", "gebiet-name": "Bornheim Ost", "A": 5400, "B": 2970, "B1": 1050, "C": 54, "D": 222750, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7,
-              "D1": 52000, "D2": 22000, "D3": 38000, "D4": 50000, "D5": 18000, "D6": 13000, "D7": 10000, "D8": 5750, "D9": 6000, "D10": 5000, "max-schnellmeldungen": 7, "anz-schnellmeldungen": 7 }
+              "D1": 52000, "D2": 22000, "D3": 38000, "D4": 50000, "D5": 18000, "D6": 13000, "D7": 10000, "D8": 5750, "D9": 6000, "D10": 5000 }
         ],
         'Kalbach-Riedberg': [
             { "gebiet-nr": "1201", "gebiet-name": "Kalbach", "A": 2800, "B": 1540, "B1": 540, "C": 28, "D": 115500, "max-schnellmeldungen": 3, "anz-schnellmeldungen": 3,

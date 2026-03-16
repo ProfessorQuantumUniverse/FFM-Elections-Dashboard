@@ -226,6 +226,7 @@ const CONFIG = {
             D11: { name: 'PARTEI',       fullName: 'Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative',            color: '#b5152b' },
             D12: { name: 'EUROPA LISTE', fullName: 'EUROPA LISTE FÜR FRANKFURT',                                                                               color: '#003399' }
         },
+        // Nord-West: AfD did not submit a list for this district's Ortsbeiratswahl (no D2 per documentation)
         'Nord-West': {
             D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
             D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
@@ -273,6 +274,7 @@ const CONFIG = {
             D9:  { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' },
             D10: { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' }
         },
+        // Kalbach-Riedberg: AfD did not submit a list for this district's Ortsbeiratswahl (no D2 per documentation)
         'Kalbach-Riedberg': {
             D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
             D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
@@ -285,6 +287,8 @@ const CONFIG = {
             D10: { name: 'DieFrankfurter', fullName: 'DieFrankfurter',                                                                                        color: '#cc6600' },
             D11: { name: 'FREIE WÄHLER', fullName: 'FREIE WÄHLER',                                                                                            color: '#0066cc' }
         },
+        // Nieder-Erlenbach, Harheim, Nieder-Eschbach, Bergen-Enkheim: AfD did not submit lists for these
+        // districts' Ortsbeiratswahl (no D2 per documentation)
         'Nieder-Erlenbach': {
             D1:  { name: 'CDU',          fullName: 'Christlich Demokratische Union Deutschlands',                                                              color: '#000000' },
             D3:  { name: 'SPD',          fullName: 'Sozialdemokratische Partei Deutschlands',                                                                  color: '#e3000f' },
