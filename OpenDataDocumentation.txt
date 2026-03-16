@@ -1,0 +1,1145 @@
+15.03.2026
+Stadt Frankfurt am Main
+Start
+Wahlen 
+OpenData-Info
+Terminübersicht
+Logo der Stadt Frankfurt am Main
+ 
+Open Data - CSV
+In der Internet-Präsentation werden Wahlergebnisse, sowie - bei Städten und Gemeinden - Informationen zu Wahllokalen und ein Straßen-Verzeichnis als Open Data zur Verfügung gestellt.
+
+Die Dateien sind in UTF-8 codiert. Wenn Sie diese mit Excel öffnen wollen, zeigt dies standardmäßig die Umlaute in den Dateien nicht korrekt an. Dies können Sie wie folgt umgehen:
+
+Excel 2003
+Wählen Sie über das Menü 'Daten' -> 'Externe Daten importieren' den Menüpunkt 'Daten importieren' aus. Es öffnet sich der Dialog 'Datenquelle auswählen'. Wählen Sie hier die zu öffnende Datei aus und betätigen Sie die 'Öffnen'-Schaltfläche. Im Anschluss legen Sie den Dateiursprung auf '65001 Unicode: (UTF-8)' fest und fahren mit der Schaltfläche 'weiter' fort. Im nächsten Dialog setzten Sie das Trennzeichen auf 'Semikolon' statt auf 'Tabstopp' und fahren erneut mit der Schaltfläche 'weiter' fort. Anschließend wählen sie als Datenformat der Spalten die Option 'Text' aus und beenden den Assistenten mit der Schaltfläch 'Fertig stellen'. Mit der Schaltfläche 'OK' beenden Sie die Prozedur und die Daten werden UTF-8 codiert in Microsoft Excel angezeigt.
+
+Excel 2010
+Wählen Sie über die Karteikarte 'Daten' im Abschnitt 'Externe Daten abrufen' die Option 'Aus Text' aus. Es öffnet sich der Dialog 'Textdatei importieren'. Wählen Sie hier die zu öffnende Datei aus und betätigen Sie die 'Öffnen'-Schaltfläche. Im Anschluss legen Sie den Dateiursprung auf '65001 Unicode: (UTF-8)' fest und fahren mit der Schaltfläche 'weiter' fort. Im nächsten Dialog setzten Sie das Trennzeichen auf 'Semikolon' statt auf 'Tabstopp' und fahren erneut mit der Schaltfläche 'weiter' fort. Anschließend wählen sie als Datenformat der Spalten die Option 'Text' aus und beenden den Assistenten mit der Schaltfläche 'Fertig stellen'. Mit der Schaltfläche 'OK' beenden Sie die Prozedur und die Daten werden UTF-8 codiert in Microsoft Excel angezeigt.
+
+Open Data - Wahllokale
+Informationen zu Stimmbezirken und Wahlräumen finden Sie in dieser Datei: opendata-wahllokale.csv
+Sie enthält folgende Spalten:
+
+datum :
+ags :
+Bezirk-Nr :
+Bezirk-Name :
+Bezirk-Art :
+Wahlraum-Bezeichnung :
+Wahlraum-Adresse :
+Wahlraum-Barrierefrei :
+Wahlraum-Barrierefrei-Ergaenzung :
+Open Data - Straßen-Verzeichnis
+Informationen zur Zuordnung von Straßen/-Bereichen zu Bezirken finden Sie in dieser Datei: opendata-strassen.csv
+Sie enthält folgende Spalten:
+
+datum :
+ags :
+Strassen-Name :
+Hausnummern-Bereich :
+PLZ :
+Ortsteil :
+Bezirk-Nr :
+Open Data - Wahlergebnisse 
+Die Ergebnisse können bereits am Wahlabend laufend und aktuell in einem standardisierten Format von diesem Web-Server abgerufen werden, z. B. um automatisch weiterverarbeitet zu werden.
+Eine Behörde kann zur Präsentation des Wahlergebnisses verschiedene Gebiets-Ebenen einrichten, von der untersten Ebene (Stimmbezirke) über Wahlbezirke und Ortsteile bis hin zur Ebene der Stadt bzw. Gemeinde, des Kreises und des Wahlkreises. Dabei sind jedoch nicht alle Ebenen für jeden Wahltyp notwendig. Für jede der Gebiets-Ebenen, die eine Behörde eingerichtet hat, gibt es eine Datei mit der Übersicht derjenigen Gebiete mit bereits eingegangenen Schnellmeldungen. Folgende Dateien stehen am Wahlabend zur Verfügung:
+
+Die Dateien enthalten folgende Felder:
+
+Stadtverordnetenwahl (Trendwahl)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Stadtverordnetenwahl (Trendwahl) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Innenstadt I)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Innenstadt I) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Innenstadt II)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Innenstadt II) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Innenstadt III)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Innenstadt III) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Bornheim/Ostend)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Bornheim/Ostend) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Süd)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Süd) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (West) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Mitte-West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Mitte-West) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Nord-West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Nord-West) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Mitte-Nord)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Mitte-Nord) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Nord-Ost)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Nord-Ost) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Ost)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Ost) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Kalbach/Riedberg)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Kalbach/Riedberg) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Nieder-Erlenbach)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Nieder-Erlenbach) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Harheim)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Harheim) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Nieder-Eschbach)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Nieder-Eschbach) treten folgende Parteien an:
+
+Ortsbeiratswahl (Trendwahl) (Bergen-Enkheim)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+Stapel1 : Stimmzettel, bei denen ein Wahlvorschlag unverändert angenommen worden ist
+Stapel2 : Stimmzettel, die nicht gekennzeichnet sind (zweifelsfrei ungültige Stimmzettel)
+Stapel4 : alle übrigen Stimmzettel
+Trend_1 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 1
+... : ...
+Trend_99 : unverändert angenommene Stimmzettel aus Stapel 1 von Partei 99
+Bei der aktuellen Ortsbeiratswahl (Trendwahl) (Bergen-Enkheim) treten folgende Parteien an:
+
+Stadtverordnetenwahl
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Stadtverordnetenwahl treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Volt Deutschland
+D8 : Bürger Für Frankfurt
+D9 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D10 : ÖkoLinX
+D11 : EUROPA LISTE FÜR FRANKFURT
+D12 : Ich bin ein Frankfurter
+D13 : Bündnis für Innovation & Gerechtigkeit
+D14 : Gartenpartei Frankfurt am Main
+D15 : Piratenpartei Deutschland
+D16 : FREIE WÄHLER
+D17 : DieFrankfurter
+D18 : MERA25 - Gemeinsam für Frieden, Solidarität und Freiheit
+D19 : PARTEI MENSCH UMWELT TIERSCHUTZ
+D20 : Global Unity in Germany
+D21 : Frankfurt-Sozial!
+D22 : Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit
+Ortsbeiratswahl (Innenstadt I)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Innenstadt I) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : ÖkoLinX
+D8 : Bürger Für Frankfurt
+D9 : DieFrankfurter
+D10 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D11 : FREIE WÄHLER
+D12 : Volt Deutschland
+Ortsbeiratswahl (Innenstadt II)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Innenstadt II) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Bürger Für Frankfurt
+D8 : ÖkoLinX
+D9 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D10 : Volt Deutschland
+D11 : FREIE WÄHLER
+Ortsbeiratswahl (Innenstadt III)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Innenstadt III) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Volt Deutschland
+D8 : ÖkoLinX
+D9 : DieFrankfurter
+D10 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D11 : Bürger Für Frankfurt
+D12 : FREIE WÄHLER
+D13 : Gartenpartei Frankfurt am Main
+Ortsbeiratswahl (Bornheim/Ostend)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Bornheim/Ostend) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Volt Deutschland
+D8 : DieFrankfurter
+D9 : ÖkoLinX
+D10 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D11 : Gartenpartei Frankfurt am Main
+D12 : Bürger Für Frankfurt
+D13 : FREIE WÄHLER
+Ortsbeiratswahl (Süd)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Süd) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Bürger Für Frankfurt
+D8 : DieFrankfurter
+D9 : ÖkoLinX
+D10 : Bündnis für Innovation & Gerechtigkeit
+D11 : FREIE WÄHLER
+D12 : EUROPA LISTE FÜR FRANKFURT
+D13 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+Ortsbeiratswahl (West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (West) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Bürger Für Frankfurt
+D8 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D9 : Partei des Fortschritts
+D10 : Frankfurt-Sozial!
+D11 : Bündnis für Innovation & Gerechtigkeit
+D12 : DieFrankfurter
+D13 : Volt Deutschland
+D14 : EUROPA LISTE FÜR FRANKFURT
+D15 : FREIE WÄHLER
+Ortsbeiratswahl (Mitte-West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Mitte-West) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : die farbechten / Die Linke
+D7 : Bürger Für Frankfurt
+D8 : FREIE WÄHLER
+D9 : Gemeinsam für Mitte-West
+D10 : ÖkoLinX
+D11 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D12 : EUROPA LISTE FÜR FRANKFURT
+Ortsbeiratswahl (Nord-West)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Nord-West) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : FREIE WÄHLER
+D8 : EUROPA LISTE FÜR FRANKFURT
+D9 : Bürger Für Frankfurt
+Ortsbeiratswahl (Mitte-Nord)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Mitte-Nord) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Bürger Für Frankfurt
+D8 : FREIE WÄHLER
+D9 : Volt Deutschland
+Ortsbeiratswahl (Nord-Ost)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Nord-Ost) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : DieFrankfurter
+D8 : FREIE WÄHLER
+D9 : EUROPA LISTE FÜR FRANKFURT
+D10 : Frankfurt-Sozial!
+D11 : Bürger Für Frankfurt
+D12 : Volt Deutschland
+Ortsbeiratswahl (Ost)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Ost) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D2 : Alternative für Deutschland
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Die Linke
+D7 : Bürger Für Frankfurt
+D8 : Frankfurt-Sozial!
+D9 : FREIE WÄHLER
+D10 : DieFrankfurter
+Ortsbeiratswahl (Kalbach/Riedberg)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Kalbach/Riedberg) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Volt Deutschland
+D7 : Die Linke
+D8 : Bürger Für Frankfurt
+D9 : Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative
+D10 : DieFrankfurter
+D11 : FREIE WÄHLER
+Ortsbeiratswahl (Nieder-Erlenbach)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Nieder-Erlenbach) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Bürger Für Frankfurt
+D7 : FREIE WÄHLER
+Ortsbeiratswahl (Harheim)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Harheim) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Bürger Für Frankfurt
+D7 : FREIE WÄHLER
+Ortsbeiratswahl (Nieder-Eschbach)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Nieder-Eschbach) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : Bürger Für Frankfurt
+D7 : Die Linke
+D8 : FREIE WÄHLER
+Ortsbeiratswahl (Bergen-Enkheim)
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ortsbeiratswahl (Bergen-Enkheim) treten folgende Parteien an:
+
+D1 : Christlich Demokratische Union Deutschlands
+D3 : Sozialdemokratische Partei Deutschlands
+D4 : BÜNDNIS 90/DIE GRÜNEN
+D5 : Freie Demokratische Partei
+D6 : WIR BERGEN-ENKHEIMER
+D7 : Die Linke
+D8 : Bürger Für Frankfurt
+D9 : FREIE WÄHLER
+Ausländerbeiratswahl
+datum : Datum des Wahltermins
+wahl : Name der Wahl
+ags : AGS der Behörde
+gebiet-nr : Nummer des Wahlgebiets
+gebiet-name : Name des Wahlgebiets
+max-schnellmeldungen : Anzahl an insgesamt erwarteten Schnellmeldungen im Wahlgebiet
+anz-schnellmeldungen : Anzahl an bisher eingegangenen Schnellmeldungen im Wahlgebiet
+A1 : Wahlberechtigte ohne Sperrvermerk
+A2 : Wahlberechtigte mit Sperrvermerk
+A3 : Wahlberechtigte (nicht im WVZ)
+A : Wahlberechtigte insgesamt
+B : Wählerinnen/Wähler
+B1 : Wähler/innen mit Wahlschein
+C : Ungültige Stimmzettel
+D : Gültige Stimmen
+Trend_<pos> : unverändert angenommene Stimmzettel aus Stapel 1 von Partei<pos>
+unveraendert_<pos> : Unverändert abgegebene Stimmzettel von Partei <pos>
+veraendert_<pos> : In Wahlvorschlag veränderte Stimmzettel von Partei <pos>
+panasch_<pos> : Stimmzettel mit panasch. Stimmen von Partei <pos>
+D<pos>_veraendert : Summe der gültigen Stimmen, die auf die Partei <pos> entfallen sind
+D<pos> : Partei <pos> - Stimmen für die Partei gesamt
+D<pos>_<listennummer> : Stimmen für Partei <pos>, Kandidat <listennummer>
+Bei der aktuellen Ausländerbeiratswahl treten folgende Parteien an:
+
+D1 : SERBISCHE LISTE
+D2 : DieFrankfurter
+D3 : Ausländische Interessenvertretung
+D4 : Internationale Freie Liste
+D5 : Christlich Demokratische Union Deutschlands
+D6 : Liberales Deutschland
+D7 : BÜNDNIS 90/DIE GRÜNEN
+D8 : Ich bin ein Frankfurter
+D9 : Ukrainische-Diaspora-Frankfurt
+D10 : Sozialdemokratische Partei Deutschlands
+D11 : Global Unity in Germany
+D12 : Bündnis für Innovation & Gerechtigkeit
+D13 : Deutsche und Ausländer für Bildung, Empowerment und Integration
+D14 : WIR IN FRANKFURT
+D15 : Liste Mezopotamya
+D16 : Progressive Ausländer Union
+D17 : BHARAT
+D18 : FREIE WÄHLER
+D19 : Freie Demokratische Partei
+D20 : Liste Anadolu
+D21 : Afghanische Liste
+D22 : Bürger Für Frankfurt
+D23 : DAJ ZNAK Polnische Dialoginitiative für Frankfurt
+D24 : Chinesische Liste
+D25 : Volt Deutschland
+D26 : Die Linke
+Wahl	Ebene
+Stadtverordnetenwahl (Trendwahl)	Gemeinde-Ergebnis
+Stadtverordnetenwahl (Trendwahl)	Übersicht über Ortsbezirke
+Stadtverordnetenwahl (Trendwahl)	Übersicht über Ortsteile
+Stadtverordnetenwahl (Trendwahl)	Übersicht über Gruppierungen
+Stadtverordnetenwahl (Trendwahl)	Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Innenstadt I: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Innenstadt II: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Innenstadt III: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Bornheim/Ostend: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Süd: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	West: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Mitte-West: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Nord-West: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Mitte-Nord: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Nord-Ost: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Ost: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Kalbach/Riedberg: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Nieder-Erlenbach: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Harheim: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Nieder-Eschbach: Übersicht über Wahlbezirke
+Ortsbeiratswahl (Trendwahl)	Bergen-Enkheim: Übersicht über Wahlbezirke
+Stadtverordnetenwahl	Gemeinde-Ergebnis
+Stadtverordnetenwahl	Übersicht über Ortsbezirke
+Stadtverordnetenwahl	Übersicht über Ortsteile
+Stadtverordnetenwahl	Übersicht über Gruppierungen
+Stadtverordnetenwahl	Übersicht über Wahlbezirke
+Ortsbeiratswahl	Innenstadt I: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Innenstadt II: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Innenstadt III: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Bornheim/Ostend: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Süd: Übersicht über Wahlbezirke
+Ortsbeiratswahl	West: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Mitte-West: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Nord-West: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Mitte-Nord: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Nord-Ost: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Ost: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Kalbach/Riedberg: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Nieder-Erlenbach: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Harheim: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Nieder-Eschbach: Übersicht über Wahlbezirke
+Ortsbeiratswahl	Bergen-Enkheim: Übersicht über Wahlbezirke
+Ausländerbeiratswahl	Gemeinde-Ergebnis
+Ausländerbeiratswahl	Übersicht über Ortsbezirke
+Ausländerbeiratswahl	Übersicht über Ortsteile
+Ausländerbeiratswahl	Übersicht über Gruppierungen
+Ausländerbeiratswahl	Übersicht über Wahlbezirke
+URLs für das Einbinden einer Grafik des Gesamtergebnisses in eine Homepage
+Bitte kopieren Sie die URL mit 'Verknüpfung kopieren'
+URL	Wahl
+URL	Stadtverordnetenwahl (Trendwahl) - Stadt Frankfurt am Main
+URL	Ortsbeiratswahl (Trendwahl) - Stadt Frankfurt am Main
+URL	Stadtverordnetenwahl - Stadt Frankfurt am Main
+URL	Ortsbeiratswahl - Stadt Frankfurt am Main
+URL	Ausländerbeiratswahl - Stadt Frankfurt am Main
+votemanager.de
+Datenschutz Impressum Lizenzen
+
