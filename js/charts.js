@@ -47,7 +47,7 @@ class ChartManager {
             Chart.defaults.font.family = "'Segoe UI', system-ui, -apple-system, sans-serif";
             Chart.defaults.color = '#2d3748';
         } else {
-            console.warn('Chart.js konnte nicht geladen werden. Diagramme werden als Platzhalter angezeigt.');
+            console.warn('Chart.js could not be loaded. Charts will be displayed as placeholders.');
         }
     }
 
@@ -92,7 +92,7 @@ class ChartManager {
      */
     renderUnavailableChart(canvasId) {
         const canvas = document.getElementById(canvasId);
-        if (!canvas || typeof canvas.getContext !== 'function') return;
+        if (!canvas || canvas.tagName !== 'CANVAS') return;
 
         const context = canvas.getContext('2d');
         if (!context) return;
@@ -111,7 +111,7 @@ class ChartManager {
         context.font = '14px Segoe UI, system-ui, sans-serif';
         context.textAlign = 'center';
         context.textBaseline = 'middle';
-        context.fillText('Diagramm nicht verfügbar (Chart.js konnte nicht geladen werden)', canvas.width / 2, canvas.height / 2);
+        context.fillText('Chart unavailable (Chart.js could not be loaded)', canvas.width / 2, canvas.height / 2);
     }
 
     /**

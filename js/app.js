@@ -423,6 +423,8 @@ class ElectionsDashboard {
      */
     async renderSVWardCharts() {
         if (!this.data.svWahlbezirke || this.data.svWahlbezirke.length === 0) return;
+        const maxWardsBeforeSampling = 25;
+        const wardSamplingInterval = 10;
         
         const allWards = this.data.svWahlbezirke.map(row => {
             const metrics = dataLoader.calculateMetrics(row);
@@ -436,8 +438,14 @@ class ElectionsDashboard {
 
         const districtFilter = document.getElementById('svWardDistrictFilter')?.value || 'all';
         if (districtFilter !== 'all') {
-            const filterNorm = String(districtFilter).toLowerCase();
-            const filtered = wards.filter(w => String(w.name || '').toLowerCase().includes(filterNorm));
+            const filterNorm = String(districtFilter).trim().toLowerCase();
+            const filtered = wards.filter(w => {
+                const explicitDistrict = this.getWardDistrictName(w);
+                if (explicitDistrict) {
+                    return String(explicitDistrict).trim().toLowerCase() === filterNorm;
+                }
+                return String(w.name || '').toLowerCase().includes(filterNorm);
+            });
             if (filtered.length > 0) {
                 wards = filtered;
             }
@@ -453,11 +461,20 @@ class ElectionsDashboard {
         }
         
         // Ward turnout chart (sample - too many wards)
-        const sampleWards = wards.length > 25 ? wards.filter((_, i) => i % 10 === 0) : wards;
+        const sampleWards = wards.length > maxWardsBeforeSampling
+            ? wards.filter((_, i) => i % wardSamplingInterval === 0)
+            : wards;
         chartManager.createTurnoutChart('svWardTurnoutChart', sampleWards);
         
         // Ward table
         this.renderWardTable('svWardTableBody', wards);
+    }
+
+    /**
+     * Resolve district name for a ward row across different data source schemas
+     */
+    getWardDistrictName(ward) {
+        return ward['ortsbezirk'] || ward['ortsbezirk-name'] || ward['bezirk-name'] || ward['district'] || null;
     }
 
     /**
@@ -732,12 +749,32 @@ class ElectionsDashboard {
      */
     renderMap() {
         if (!this.mapAvailable || !this.data.svOrtsbezirke) return;
-        
-        const districtData = this.data.svOrtsbezirke.map(row => {
+
+        const selectedElection = document.getElementById('mapElectionType')?.value || 'stadtverordnete';
+        let selectedRows = this.data.svOrtsbezirke;
+        const obDistrictMeta = new Map(CONFIG.ORTSBEZIRKE.map(d => [d.slug, d]));
+
+        if (selectedElection === 'ortsbeirat' && this.data.ortsbeirat?.size > 0) {
+            const obRows = [];
+            for (const [slug, rows] of this.data.ortsbeirat.entries()) {
+                if (!rows || rows.length === 0) continue;
+                const district = obDistrictMeta.get(slug);
+                if (!district) continue;
+                const aggregated = this.aggregateWahlbezirke(rows);
+                aggregated['gebiet-name'] = district.name;
+                aggregated.internalDistrictSlug = slug;
+                obRows.push(aggregated);
+            }
+            if (obRows.length > 0) {
+                selectedRows = obRows;
+            }
+        }
+
+        const districtData = selectedRows.map(row => {
             const metrics = dataLoader.calculateMetrics(row);
-            const partyResults = dataLoader.addPercentages(
-                dataLoader.extractPartyResults(row, CONFIG.PARTIES_SV)
-            );
+            const partyResults = selectedElection === 'ortsbeirat' && row.internalDistrictSlug
+                ? dataLoader.addPercentages(this.extractOrtsbeiratPartyResults(row, { slug: row.internalDistrictSlug }))
+                : dataLoader.addPercentages(dataLoader.extractPartyResults(row, CONFIG.PARTIES_SV));
             
             return {
                 name: row['gebiet-name'],
@@ -748,8 +785,8 @@ class ElectionsDashboard {
         });
         
         mapManager.setDistrictData(districtData);
-        const currentDataType = document.getElementById('mapDataType')?.value || 'turnout';
-        mapManager.addDistrictMarkers(currentDataType);
+        const selectedMapDataType = document.getElementById('mapDataType')?.value || 'turnout';
+        mapManager.addDistrictMarkers(selectedMapDataType);
     }
 
     /**
