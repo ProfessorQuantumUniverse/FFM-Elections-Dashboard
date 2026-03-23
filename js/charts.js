@@ -6,6 +6,7 @@
 class ChartManager {
     constructor() {
         this.charts = new Map();
+        this.isChartJsAvailable = typeof window !== 'undefined' && typeof window.Chart !== 'undefined';
         this.defaultOptions = {
             responsive: true,
             maintainAspectRatio: false,
@@ -41,9 +42,13 @@ class ChartManager {
             }
         };
         
-        // Set Chart.js defaults
-        Chart.defaults.font.family = "'Segoe UI', system-ui, -apple-system, sans-serif";
-        Chart.defaults.color = '#2d3748';
+        // Set Chart.js defaults (if available)
+        if (this.isChartJsAvailable) {
+            Chart.defaults.font.family = "'Segoe UI', system-ui, -apple-system, sans-serif";
+            Chart.defaults.color = '#2d3748';
+        } else {
+            console.warn('Chart.js konnte nicht geladen werden. Diagramme werden als Platzhalter angezeigt.');
+        }
     }
 
     /**
@@ -55,17 +60,22 @@ class ChartManager {
      * @returns {Chart} Chart instance
      */
     createChart(canvasId, type, data, options = {}) {
-        // Destroy existing chart if present
-        if (this.charts.has(canvasId)) {
-            this.charts.get(canvasId).destroy();
-        }
-        
         const ctx = document.getElementById(canvasId);
         if (!ctx) {
             console.error(`Canvas not found: ${canvasId}`);
             return null;
         }
-        
+
+        if (!this.isChartJsAvailable) {
+            this.renderUnavailableChart(canvasId);
+            return null;
+        }
+
+        // Destroy existing chart if present
+        if (this.charts.has(canvasId)) {
+            this.charts.get(canvasId).destroy();
+        }
+
         const mergedOptions = this.mergeOptions(this.defaultOptions, options);
         const chart = new Chart(ctx, {
             type,
@@ -75,6 +85,33 @@ class ChartManager {
         
         this.charts.set(canvasId, chart);
         return chart;
+    }
+
+    /**
+     * Render a simple placeholder if Chart.js is unavailable
+     */
+    renderUnavailableChart(canvasId) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas || typeof canvas.getContext !== 'function') return;
+
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        // Sync canvas backing size with visible size for crisp text
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+            canvas.width = Math.floor(rect.width);
+            canvas.height = Math.floor(rect.height);
+        }
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = '#f7fafc';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = '#4a5568';
+        context.font = '14px Segoe UI, system-ui, sans-serif';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText('Diagramm nicht verfügbar (Chart.js konnte nicht geladen werden)', canvas.width / 2, canvas.height / 2);
     }
 
     /**
