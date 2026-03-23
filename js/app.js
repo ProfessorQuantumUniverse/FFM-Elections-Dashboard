@@ -18,6 +18,7 @@ class ElectionsDashboard {
             ortsbeirat: new Map()
         };
         this.isLoading = true;
+        this.mapAvailable = true;
     }
 
     /**
@@ -165,6 +166,27 @@ class ElectionsDashboard {
         if (svDistrictSort) {
             svDistrictSort.addEventListener('change', () => {
                 this.sortDistrictChart(svDistrictSort.value);
+            });
+        }
+
+        const svWardSort = document.getElementById('svWardSort');
+        if (svWardSort) {
+            svWardSort.addEventListener('change', () => {
+                this.renderSVWardCharts();
+            });
+        }
+
+        const svWardDistrictFilter = document.getElementById('svWardDistrictFilter');
+        if (svWardDistrictFilter) {
+            svWardDistrictFilter.addEventListener('change', () => {
+                this.renderSVWardCharts();
+            });
+        }
+
+        const mapElectionType = document.getElementById('mapElectionType');
+        if (mapElectionType) {
+            mapElectionType.addEventListener('change', () => {
+                this.renderMap();
             });
         }
     }
@@ -401,8 +423,10 @@ class ElectionsDashboard {
      */
     async renderSVWardCharts() {
         if (!this.data.svWahlbezirke || this.data.svWahlbezirke.length === 0) return;
+        const maxWardsBeforeSampling = 25;
+        const wardSamplingInterval = 10;
         
-        const wards = this.data.svWahlbezirke.map(row => {
+        const allWards = this.data.svWahlbezirke.map(row => {
             const metrics = dataLoader.calculateMetrics(row);
             return {
                 number: row['gebiet-nr'],
@@ -410,16 +434,47 @@ class ElectionsDashboard {
                 ...metrics
             };
         });
-        
-        // Sort by number
-        wards.sort((a, b) => a.number - b.number);
+        let wards = [...allWards];
+
+        const districtFilter = document.getElementById('svWardDistrictFilter')?.value || 'all';
+        if (districtFilter !== 'all') {
+            const filterNorm = String(districtFilter).trim().toLowerCase();
+            const filtered = wards.filter(w => {
+                const explicitDistrict = this.getWardDistrictName(w);
+                if (explicitDistrict) {
+                    return String(explicitDistrict).trim().toLowerCase() === filterNorm;
+                }
+                return String(w.name || '').toLowerCase().includes(filterNorm);
+            });
+            if (filtered.length > 0) {
+                wards = filtered;
+            }
+        }
+
+        const sortMode = document.getElementById('svWardSort')?.value || 'number';
+        if (sortMode === 'turnout-desc') {
+            wards.sort((a, b) => b.turnout - a.turnout);
+        } else if (sortMode === 'turnout-asc') {
+            wards.sort((a, b) => a.turnout - b.turnout);
+        } else {
+            wards.sort((a, b) => Number(a.number) - Number(b.number));
+        }
         
         // Ward turnout chart (sample - too many wards)
-        const sampleWards = wards.filter((_, i) => i % 10 === 0); // Every 10th ward
+        const sampleWards = wards.length > maxWardsBeforeSampling
+            ? wards.filter((_, i) => i % wardSamplingInterval === 0)
+            : wards;
         chartManager.createTurnoutChart('svWardTurnoutChart', sampleWards);
         
         // Ward table
         this.renderWardTable('svWardTableBody', wards);
+    }
+
+    /**
+     * Resolve district name for a ward row across different data source schemas
+     */
+    getWardDistrictName(ward) {
+        return ward['ortsbezirk'] || ward['ortsbezirk-name'] || ward['bezirk-name'] || ward['district'] || null;
     }
 
     /**
@@ -673,8 +728,19 @@ class ElectionsDashboard {
         try {
             mapManager.init();
             this.renderMap();
+            this.mapAvailable = true;
         } catch (error) {
+            this.mapAvailable = false;
             console.error('Error initializing map:', error);
+            const mapContainer = document.getElementById('frankfurtMap');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <div class="info-box">
+                        <p><strong>Karte derzeit nicht verfügbar.</strong></p>
+                        <p>Die Kartenbibliothek konnte nicht geladen werden. Bitte prüfen Sie die Netzwerkverbindung oder erlauben Sie externe CDNs.</p>
+                    </div>
+                `;
+            }
         }
     }
 
@@ -682,13 +748,33 @@ class ElectionsDashboard {
      * Render map with current data
      */
     renderMap() {
-        if (!this.data.svOrtsbezirke) return;
-        
-        const districtData = this.data.svOrtsbezirke.map(row => {
+        if (!this.mapAvailable || !this.data.svOrtsbezirke) return;
+
+        const selectedElection = document.getElementById('mapElectionType')?.value || 'stadtverordnete';
+        let selectedRows = this.data.svOrtsbezirke;
+        const obDistrictMeta = new Map(CONFIG.ORTSBEZIRKE.map(d => [d.slug, d]));
+
+        if (selectedElection === 'ortsbeirat' && this.data.ortsbeirat?.size > 0) {
+            const obRows = [];
+            for (const [slug, rows] of this.data.ortsbeirat.entries()) {
+                if (!rows || rows.length === 0) continue;
+                const district = obDistrictMeta.get(slug);
+                if (!district) continue;
+                const aggregated = this.aggregateWahlbezirke(rows);
+                aggregated['gebiet-name'] = district.name;
+                aggregated.internalDistrictSlug = slug;
+                obRows.push(aggregated);
+            }
+            if (obRows.length > 0) {
+                selectedRows = obRows;
+            }
+        }
+
+        const districtData = selectedRows.map(row => {
             const metrics = dataLoader.calculateMetrics(row);
-            const partyResults = dataLoader.addPercentages(
-                dataLoader.extractPartyResults(row, CONFIG.PARTIES_SV)
-            );
+            const partyResults = selectedElection === 'ortsbeirat' && row.internalDistrictSlug
+                ? dataLoader.addPercentages(this.extractOrtsbeiratPartyResults(row, { slug: row.internalDistrictSlug }))
+                : dataLoader.addPercentages(dataLoader.extractPartyResults(row, CONFIG.PARTIES_SV));
             
             return {
                 name: row['gebiet-name'],
@@ -699,13 +785,15 @@ class ElectionsDashboard {
         });
         
         mapManager.setDistrictData(districtData);
-        mapManager.addDistrictMarkers('turnout');
+        const selectedMapDataType = document.getElementById('mapDataType')?.value || 'turnout';
+        mapManager.addDistrictMarkers(selectedMapDataType);
     }
 
     /**
      * Update map display type
      */
     updateMapDisplay(dataType) {
+        if (!this.mapAvailable) return;
         mapManager.addDistrictMarkers(dataType);
     }
 
