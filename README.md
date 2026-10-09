@@ -1,3 +1,9 @@
+> [!NOTE]
+> **Archived – no longer maintained.** Built for the 2026 Frankfurt local elections, which are over; the website stays online.
+> The code stays available for reference, but there will be no updates or security fixes.
+>
+> *Archiviert – wird nicht mehr gepflegt. Für die Kommunalwahl 2026 in Frankfurt gebaut, die Wahl ist vorbei; die Website bleibt online.*
+
 # Frankfurt am Main - Wahlergebnisse 2026
 
 ![Dashboard Screenshot](docs/screenshot.png)
